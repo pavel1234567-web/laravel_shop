@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f0f0f0"/>
+  <rect x="1" y="1" width="798" height="598" fill="none" stroke="#ddd" stroke-width="2"/>
+  <g fill="#aaa">
+    <rect x="320" y="210" width="160" height="130" rx="8"/>
+    <circle cx="350" cy="240" r="18" fill="#f0f0f0"/>
+    <polygon points="320,340 380,270 430,310 480,250 480,340" fill="#c8c8c8"/>
+  </g>
+  <text x="400" y="390" font-family="Arial" font-size="22"
+        fill="#aaa" text-anchor="middle">Нет фото</text>
+</svg>
