@@ -1,27 +1,48 @@
 <?php
 
+// Пространство имен для провайдеров приложения
 namespace App\Providers;
 
+// Импорт класса пагинатора Laravel
 use Illuminate\Pagination\Paginator;
 
+// Импорт базового класса сервис-провайдера
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Класс основного сервис-провайдера приложения
+ * Регистрирует и загружает основные сервисы приложения
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Регистрация любых сервисов приложения
+     * 
+     * Этот метод вызывается перед всеми остальными
+     * Используется для регистрации сервисов в контейнере
+     * 
+     * @return void
      */
     public function register(): void
     {
-        //
+        // Место для регистрации сервисов
+        // (пока пусто)
     }
 
     /**
-     * Bootstrap any application services.
+     * Загрузка любых сервисов приложения
+     * 
+     * Этот метод вызывается после регистрации всех сервисов
+     * Используется для настройки приложения
+     * 
+     * @return void
      */
     public function boot(): void
     {
-        // ↓ Включить Bootstrap стиль пагинации
+        // Настройка стилей пагинации
+        
+        // Использование Bootstrap 5 для отображения ссылок пагинации
+        // Включает Bootstrap стили для навигации по страницам
         Paginator::useBootstrapFive();
     }
 }

@@ -1,17 +1,33 @@
 <?php
 
+// Пространство имен для компонентов представлений
 namespace App\View\Components;
 
+// Импорт базового класса компонента
 use Illuminate\View\Component;
+// Импорт класса представления
 use Illuminate\View\View;
 
+/**
+ * Класс компонента макета для гостей (неавторизованных пользователей)
+ * 
+ * Представляет шаблон для страниц, доступных без аутентификации
+ * Например: страницы входа, регистрации, восстановления пароля
+ */
 class GuestLayout extends Component
 {
     /**
-     * Get the view / contents that represents the component.
+     * Получение представления / содержимого компонента
+     * 
+     * Этот метод вызывается при рендеринге компонента
+     * Возвращает view, который будет использован как шаблон для гостевых страниц
+     * 
+     * @return \Illuminate\View\View
      */
     public function render(): View
     {
+        // Возвращает представление 'layouts.guest'
+        // Файл должен находиться по пути: resources/views/layouts/guest.blade.php
         return view('layouts.guest');
     }
 }
