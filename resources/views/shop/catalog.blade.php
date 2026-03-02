@@ -65,9 +65,9 @@
                     <option value="name_desc"  {{ request('sort')=='name_desc'           ? 'selected':'' }}>Название Я-А</option>
                 </select>
 
-                <button id="searchBtn" class="btn btn-primary">
+                <!-- <button id="searchBtn" class="btn btn-primary">
                     <i class="bi bi-search"></i>
-                </button>
+                </button> -->
             </div>
 
             {{-- Спиннер загрузки --}}

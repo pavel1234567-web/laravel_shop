@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,4 +38,46 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }
+
+    /**
+     * Использовать поле 'login' вместо 'email'
+     */
+    public function username()
+    {
+        return 'login'; // ← поле из формы
+    }
+
+    /**
+     * Авторизация по login (может быть email или name)
+     * Переопределяем credentials чтобы искать по email
+     */
+    protected function credentials(\Illuminate\Http\Request $request)
+    {
+        // dd($request->all()); // ← покажет что пришло из формы
+        return [
+            'name' => $request->input('login'), // ищем по name
+            // 'email'    => $request->input('login'), // ищем в БД по полю email
+            'password' => $request->input('password'),
+        ];
+    }
+
+    /**
+     * Сообщение после успешного входа
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        session()->flash('success', 'Добро пожаловать, ' . $user->name . '!');
+        return redirect($this->redirectTo);
+    }
+
+    /**
+     * Сообщение после выхода
+     */
+    protected function loggedOut(Request $request)
+    {
+        session()->flash('info', 'Вы вышли из системы.');
+        return redirect('/');
+    }
+
 }
+

@@ -4,10 +4,14 @@
 namespace App\Models;
 
 // Импорт классов (закомментирован, т.к. не используется)
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+
+
+class User extends Authenticatable implements MustVerifyEmail
 
 /**
  * Класс модели пользователя
@@ -15,7 +19,7 @@ use Illuminate\Notifications\Notifiable;
  * Расширяет базовый класс Authenticatable для аутентификации
  * Связан с таблицей 'users' в базе данных
  */
-class User extends Authenticatable
+// class User extends Authenticatable
 {
     /**
      * Использование трейтов:

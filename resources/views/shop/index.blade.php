@@ -36,8 +36,10 @@
                 @if($product->discount_percent)
                     <span class="badge bg-danger badge-discount">-{{ $product->discount_percent }}%</span>
                 @endif
-                <img src="{{ $product->image ?? 'https://via.placeholder.com/300x200?text=' . urlencode($product->name) }}"
-                     class="card-img-top" style="height:200px;object-fit:cover" alt="{{ $product->name }}">
+                <img src="{{ $product->image_url }}"
+                     class="card-img-top"
+                     style="height:180px; object-fit:cover"
+                     alt="{{ $product->name }}">
                 <div class="card-body d-flex flex-column">
                     <small class="text-muted">{{ $product->category->name }}</small>
                     <h6 class="card-title mt-1">{{ $product->name }}</h6>
